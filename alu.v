@@ -1,24 +1,4 @@
 `timescale 1ns/1ps
-//0316044 + 0316225
-//////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date:    15:15:11 02/25/2016
-// Design Name:
-// Module Name:    alu
-// Project Name:
-// Target Devices:
-// Tool versions:
-// Description:
-//
-// Dependencies:
-//
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-//
-//////////////////////////////////////////////////////////////////////////////////
 
 module alu(
            rst_n,         // negative reset            (input)
@@ -44,36 +24,15 @@ output          zero;
 output          cout;
 output          overflow;
 
-
 wire             zero;
 wire             cout;
 wire             overflow;
 
-//self-design
 reg [1:0] oper;
-wire [31:0] carry;//as input of alu_top, shoule be wire
+wire [31:0] carry;
 reg a_in;
 reg b_in;
 reg less_sig;
-
-/*
-genvar gvi;
-generate
-	for(gvi=0; gvi<32; gvi = gvi+1)
-	begin: label
-		if(gvi==0)begin
-			alu_top alu0( .src1(src1[0]), .src2(src2[0]), .less(result[31]),
-								.A_invert(a_in), .B_invert(b_in),.cin(carry[0]),
-								.operation(oper), .result(result[0]), .cout(carry[1]) );
-		end
-		else
-		begin
-		alu_top alu_t( .src1(src1[gvi]), .src2(src2[gvi]), .less(1'b0),
-							.A_invert(a_in), .B_invert(b_in), .cin(carry[gvi]),
-							.operation(oper), .result(result[gvi]), .cout(carry[gvi+1]) );
-		end
-	end
-endgenerate*/
 wire			set;
 wire			equal;
 
@@ -229,8 +188,5 @@ alu_top alu30( .src1(src1[30]), .src2(src2[30]), .less(less_sig), .A_invert(a_in
 alu_last alu31( .src1(src1[31]), .src2(src2[31]), .less(less_sig), .A_invert(a_in), .B_invert(b_in),
 					.cin(carry[31]), .operation(oper), .result(result[31]), .cout(cout),
 					.set(set), .equal(equal), .cmp(bonus_control) );
-//alu_last alu31( .src1(src1[31]), .src2(src2[31]), .less(less_sig), .A_invert(a_in), .B_invert(b_in),
-		//			.cin(carry[31]), .operation(oper), .result(result[31]), .cout(cout),
-		//			.set(set), .equal(equal) );
 
 endmodule
