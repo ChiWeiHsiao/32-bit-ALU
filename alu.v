@@ -58,7 +58,7 @@ generate
 					.cin(carry[31]), .operation(oper), .result(result[31]), .cout(cout),
 					.set(set), .equal(equal), .cmp(bonus_control) ); end
 		else begin
-			alu_top alu1( .src1(src1[gvi]), .src2(src2[gvi]), .less(less_sig), .A_invert(a_in), .B_invert(b_in),
+			alu_top alu( .src1(src1[gvi]), .src2(src2[gvi]), .less(less_sig), .A_invert(a_in), .B_invert(b_in),
 	 				.cin(carry[gvi]), .operation(oper), .result(result[gvi]), .cout(carry[gvi+1]) );
 		end
 	end
