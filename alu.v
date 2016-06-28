@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-
+//0316044_0316225
 module alu(
            rst_n,         // negative reset            (input)
            src1,          // 32 bits source 1          (input)
